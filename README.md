@@ -10,7 +10,7 @@ I prefer [Code::Block](http://www.codeblocks.org/) to write C PROGRAM.
 ## Course link - [UDEMY](https://www.udemy.com/share/101WwqBUUecFZbRHo=/)
 #### Instructors: Ziyad Yehia
 ### Installation
-I prefer [Ubantu](https://ubuntu.com/download/desktop)/[Kali Linux](https://www.kali.org/downloads/) in [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
+I prefer [Ubantu](https://ubuntu.com/download/desktop)/[Kali Linux](https://www.kali.org/downloads/) in [Virtual Box](https://www.virtualbox.org/wiki/Downloads).
 #### CookBook of this course is handycrafted by me.
 
 ## License
