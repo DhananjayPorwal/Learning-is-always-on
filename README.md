@@ -2,6 +2,7 @@
 In this repository you will find cookbooks, projects, related to Programming.
 
 # C language
+## Course link - [Youtube](https://youtu.be/vl794HKeXug)
 ### Installation 
 I prefer [Code::Block](http://www.codeblocks.org/) to write C PROGRAM.
 #### 101 "C language" programs are targeted for this repository.
