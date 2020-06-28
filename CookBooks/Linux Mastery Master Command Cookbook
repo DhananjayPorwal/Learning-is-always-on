@@ -1,0 +1,265 @@
+Linux Mastery Master Command- UDEMY
+
+Cookbook handycrafted by Dhananjay Porwal
+
+Command             Output                                       Shortcut Key
+
+Normally       ---> Open Terminal                           ---> Ctrl + Alt + T
+echo x         ---> Print x
+cal            ---> Shows Calender of current month
+cal 2020       ---> Shows Calender of particular year
+cal -y         ---> Shows Calender of current year
+date           ---> Shows Date and Time
+clear          ---> Clear Terminal screen                   ---> Ctrl + L
+history        ---> Shows History
+!x             ---> Print xth command of history
+!!             ---> Print Recent command of history
+history -c     ---> Cleans History
+exit           ---> Exit Terminal                           ---> Ctrl + D
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Command and Shell
+We understand this by an example
+
+Gift         ---> English          ---> Present
+(Command)	  (Shell)		(Meaning)
+
+Gift         ---> German           ---> Poison
+(Command)	  (Shell)		(Meaning)
+
+
+Conclusion-
+Commands are just text you type in Terminal
+Commands are interpreted by the Shell
+Terminal is the window to the Shell
+Commands are case sensitive
+CommandNames needs to be on the Shell's search path
+Commands operate on Inputs
+Options modify a command's behaviours
+Command= CommandName Options Inputs
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Command                    Output
+
+CommandName $PATH     ---> Paths of Command
+which CommandName     ---> Path of Command
+cal x y               ---> Calender of xth month, yth year
+date -u               ---> Shows Universal Date and Time
+cal -A w -B x y z     ---> Show Calender of zth year, yth month with wth month after(-A) and xth month before(-B){to the yth month}
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Manual Structure
+
+Section                       Contains					Description
+
+   1*			User Commands				Commands that can be run from the shell by a normal user(typically no administrative privileges are needed)
+   2			System Calls				Programming functions used to make calls to the Linux kernel
+   3			C Library Functions			Programming functions that provide interfaces to specific programming libraries
+   4			Devices and Special Files		File system nodes that represent hardware devices or software devices
+   5*			File Formats and Conventions		The structure and format of file types or specific configuration files
+   6			Games					Games available on the system
+   7			Miscellaneous				Overviews of miscellaneous topics such as protocols, filesystems and so on
+   8*			System Administration			Commands that require root or other administrative privileges to use
+
+Note: Sections 1, 5, 8 are what you will likely use most often
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Command            	  Output
+                    
+man -k which         ---> Shows sections of which command, here -k represents Search
+which ...	     ---> ... means more than one CommandName can be written
+which date cal	     ---> Shows Path of Command both command simultaneously (this is the example of which ...)
+
+
+Synopsis
+Section 		  		Meaning 
+
+[THING]              		---> THING is optional
+<THING>              		---> THING is mandatory (required)
+THING …              		---> THING can be repeated (limitlessly)
+THING1 | THING2 		---> Use THING1 OR THING2, Not Both
+THING[Notice the Italics] 	---> Replace THING with whatever is appropriate
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+ls [option] [file]
+
+Command              Output
+
+ls		---> list directory content
+ls -l 		---> Long listing format of list directory content
+ls -l -h 	---> Human readable Long listing format of list directory content
+
+help command is similar to man command
+when man command is not available we use help command
+for example- 
+Commands             Output
+help cd   	---> page similar to manual page for cd command
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+
+				    ____________________________
+Standard Input(0)                  |  			        |	    Standard Output(1)
+- - - - - - - - ->		   |                            |           - - - - - - - - - >
+				   |          COMMAND		|
+Command Argument 		   |				|	    Standard Error(2)
+_________________>		   |				|	    - - - - - - - - - >
+				   |____________________________|
+
+KEY:
+- - - - - - - - ->  Standard Data Stream
+
+_________________>  Not a Data Stream
+
+
+for example
+
+Command              Output
+date		---> Shows Date and Time(REFER 0->1)
+date sdfadfsdf  ---> standard error(REFER 0 and Command Argument->2)
+
+*cat command
+
+Command           				   Output
+
+cat					---> Concatenate files to Standard Output
+cat x					---> Prints x (line change) x
+cat 1> FileName.ExtensionName		---> Takes input given by user and save it to filename.extension in root directory
+cat > FileName.ExtensionName		---> Same Thing above mentioned
+cat >> FileName.ExtensionName		---> Add input to the previously created file without trunkating the previous data
+
+
+There are 2 ways yo get data into a command 2 ways to get data out
+Standard Input, Standard Output and Standard Error are Standard data Streams
+Data Streams can be redirected from their location to wherever you wish
+You can redirect the Standard Output of one command to the Standard Input of another in a process known as "piping"
+
+cat command doesn't have -k option(search)
+Command           			     Output
+
+cat < FileName.ExtensionName		---> Read text of file
+
+Some numbers are associated with redirecting
+0 : Standard Input
+1 : Standard Output
+2 : Standard Error
+
+~ Copy data from one text file to another
+ cat 0< FromFileName.ExtensionName 1> ToFileName.ExtensionName
+So, data will transfer from FromFileName.ExtensionName to ToFileName.ExtensionName
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+tty : Print the file name of the terminal connected to standard input
+
+~ Print data of one file to another terminal
+suppose there is any file x.txt created previously
+ terminal 1 and terminal 2
+form terminal 2
+Command 	Output
+tty        ---> Shows Terminal Location
+
+COPY the Location
+
+from terminal 1
+command 
+cat < x.txt > Paste the location here
+
+So, the output will be shown on terminal 2
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+cut Command
+
+cut : Print the selected parts of lines for each files to standard output
+
+SYNOPSIS
+
+cut OPTION ... [FileName] ...
+
+for example
+
+cal 06 2020 > test.txt
+then 
+cal < test.txt | cut --delimiter=" " --fields=x
+
+where x represents the column number(here we use x= 1)
+
+So, our Output will be
+
+Su
+
+14
+21
+28
+
+Thats all
+
+We can print this output to another file by useing following command
+
+cal 06 2020 | cut --delimiter=" " --fields=x > filename.txt
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+tee Command
+	
+ls -l 		|	textfile.txt	  |	      less
+
+---------------------------------------------------------->
+			      |
+		___________________________
+	       |			   |
+	       |__________        _________|
+			  |      |
+Standard Output		  |      |	   Standard Input
+			  |      |
+			  |      |
+			  |      |
+			  |      |
+			  |      |
+			  |      |
+			  |      |
+			  |______|
+
+			      |
+			      |
+			      |
+			      V
+			 textfile.txt
+
+
+
+
+How to use tee command??
+
+CommandName |tee FullFilename.txt| cut --delimiter=" " --fields=1 > CuttedPartFileName.txt
+
+Understand this by an example
+Date |tee fulldate.txt| cut --delimiter=" " --fields=1 > shortdate.txt
+
+So, two files are save i.e. fulldate.txt, shortdate.txt
+fulldate.txt contains Sat Jun 2020 07:36:45 PM IST
+where as shortdate.txt contains Sat
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Some commands only accepts the command line arugments, they won't work
+
+So, to dealing with such type of conditions we use new command name xargs
+
+how to use xargs 
+
+
+
+
+
+
+
+
+
+
+
