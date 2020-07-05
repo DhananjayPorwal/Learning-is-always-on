@@ -1,0 +1,285 @@
+C language - kodegod.com
+
+C is a high level language developed by Dennis Ritchie in 1972 at AT's & T's Bell Labs.
+Became very popular because of features and speed.
+ __________		      ______________________
+|C program | --------------> | Machine language code|
+|__________|    Complier     |______________________|
+
+
+OS: Windows 10 20H1
+We are Using Code::Blocks (Version 20.03) for C Programming.
+
+#include<header.files>
+
+header.files are predefined funcions or also called dependency files
+
+main() indicates entry point of any C program
+
+; used to end the instruction
+
+{ } are the building blocks
+
+clrscr() used to clear output screen
+
+
+Formate Specifiers
+
+%c: Used for Character
+%d: Used for Integer
+%f: Used for Fraction
+
+
+printf and scanf
+printf used for output
+eg- 
+printf("%d", 8);
+8(output) 
+
+scanf used for input
+eg-
+scanf("%d", &abc);
+User Enters 5
+so, abc=5
+
+
+01. First Program
+//Print Hello World
+#include<stdio.h>
+void main()
+{
+printf("Hello World!!");
+}
+
+
+Character Set & Constants
+Character set in C
+a) All Alphabets
+b) Digits/Decimal Numbers
+c) All Special Symbols
+
+
+Contants are of two types
+i.  Primary(Integer, Real, Character)
+ii. Secondary(Array, Pointer, Structure, Union, Enum)
+
+
+Datatypes
+Basic datatypes
+a)int   = Integers
+b)float = Real Values
+c)char  = Alphabets + Symbols
+
+
+Variables
+a) Must indicates what value it stores.
+b) Ideally should be assigned some values at the time of declaration.
+c) Must not contain any special character, but underscore is okay.
+d) Must start with an Alphabet or Underscore.
+e) Must not be a Keyword.
+
+Some Valid Keyword are
+int roll_number
+float pivalue
+char o
+
+Some Invalid Keyword are
+int roll-number
+float 3.142
+char 0
+int if
+
+
+Declaring a Variable
+datatype variable_name1 = intial_value;
+eg-
+int x;
+char ram;
+float game = 10.44;
+
+
+Basic Operators
+
+Types of operators in C
+
+Arithmetic Operators [+   -   *   /   %(modular division)]
+Increment and Decrement Operators
+Assignment Operators [=   +=   -=]
+Relational Operators
+Logical Operators
+Conditional Operators
+Bitwise Operators
+Special Operators
+
+
+02. Addition
+//Addition of Numbers
+#include<stdio.h>
+int main()
+{
+int x,y,z;
+printf("Enter Numbers");
+scanf("%d%d", &x, &y);
+z=x+y;
+printf("The addition of %d and %d is %d", x, y, z);
+}
+
+
+03. Subtration
+//Subtration of Numbers
+#include<stdio.h>
+int main()
+{
+int x,y,z;
+printf("Enter Numbers");
+scanf("%d%d", &x, &y);
+z=x-y;
+printf("The subtration of %d and %d is %d", x, y, z);
+}
+
+
+04. Multiplication
+//Multiplication of Numbers
+#include<stdio.h>
+int main()
+{
+int x,y,z;
+printf("Enter Numbers");
+scanf("%d%d", &x, &y);
+z=x*y;
+printf("The multiplication of %d and %d is %d", x, y, z);
+}
+
+
+04. Division
+//Division of Numbers
+#include<stdio.h>
+int main()
+{
+int x,y;
+float z;
+printf("Enter Numbers");
+scanf("%d%d", &x, &y);
+z=x/y;
+printf("The division of %d and %d is %f", x, y, z);
+}
+
+
+Note:
+int / int = int
+int / float = float
+float / int = float
+float / float = float
+
+
+05. Area of Circle
+//Area of Circle
+#include<stdio.h>
+int main()
+{
+float area, r;
+printf("Enter the value of radius");
+scanf("%f",&r);
+area=3.142*r*r;
+printf("The area of circle is %f", area);
+}
+
+06. Area of Triangle
+//Area of Circle
+#include<stdio.h>
+int main()
+{
+float area, l, b;
+printf("Enter the value of length and breath");
+scanf("%f%f", &l, &b);
+area=0.5*l*b;
+printf("The area of triangle is %f", area);
+}
+
+07. Area of Triangle
+//Area of Triangle
+#include<stdio.h>
+int main()
+{
+float area, l, b;
+printf("Enter the value of length and breath");
+scanf("%f%f", &l, &b);
+area=0.5*l*b;
+printf("The area of triangle is %f", area);
+}
+
+08. Simple Intrest
+//Simple Intrest
+#include<stdio.h>
+int main()
+{
+float si, p, r,t;
+printf("Enter the value of P,N and R");
+scanf("%f%f%f", &p, &t, &r);
+si=p*r*t/100;
+printf("The Simple Intrest is %f", si);
+}
+
+09. Square and Cube
+//Square and Cube
+int main()
+{
+int n, squ, cube;
+printf("Enter Number");
+scanf("%d",&n);
+squ=n*n;
+cube=n*n*n;
+printf("\n Square : %d \n Cube : %d", squ ,cube);
+}
+
+10. Swapping of Numbers
+//Swapping of Numbers
+int main()
+{
+int a,b,temp;
+printf("Enter Numbers");
+scanf("%d%d", &a,&b);
+temp=a;
+a=b;
+b=temp;
+printf("\nAfter Swapping a=%d, b=%d", a, b);
+}
+
+11. Total and average
+//Total and average
+#include<stdio.h>
+int main()
+{
+int rollno, m1, m2, m3, total;
+float avg;
+printf("Enter Roll Number");
+scanf("%d",&rollno);
+printf("Enter marks of three subjects");
+scanf("%d%d%d",&m1, &m2, &m3);
+total=m1+m2+m3;
+avg=total/3.0;
+printf("Student Roll Number is : %d\n", rollno);
+printf("Average of marks is : %f\n", avg);
+}
+
+27.01
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
