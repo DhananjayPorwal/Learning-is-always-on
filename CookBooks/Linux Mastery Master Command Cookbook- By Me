@@ -254,6 +254,188 @@ So, to dealing with such type of conditions we use new command name xargs
 how to use xargs 
 
 
+_________________________________________________________________________
+
+3rd part(last 2 videos)+ 4th part(1,2)
+missing data
+_________________________________________________________________________
+
+
+
+How to list directory contents
+
+Use the ls command:
+
+ls -l
+
+The ls -l command gives full information and indicates the type of filesystem object stored on disk. For example:
+
+drwxr-xr-x  3 root root     4096 Apr  4  2018 acpi
+-rw-r--r--  1 root root     3028 Apr  4  2018 adduser.conf
+
+The following information is displayed for each file from above outputs:
+
+Field			    Description
+
+drwxr-xr-x		File mode
+3			Number of links to file
+root			File owner name
+root			File group name
+4096			number of bytes in the file
+Apr 4 2018		Abbreviated month, day-of-month file was last modified, hour file last modified, and minute file last modified
+acpi			The pathname/filename
+
+
+The acpi is a directory indicated by first character d in drwxr-xr-x and the adduser.conf is a file indicated by first character - in -rw-r--r--. Let us try to understand meaning of drwxr-xr-x in ls command output.
+
+
+MORE ON THE FILE MODE
+
+
+To understand the drwxr-xr-x file mode let us divide into three groups:
+
+group 1 : d
+group 2 : rwx
+group 3 : r-x
+group 4 : r-x
+
+The file mode (group 1) printed consists of the file type and the permissions. The entry type character (group 1) describes the type of file, as follows:
+
+
+Character	   	   File type
+
+-			Regular file.
+b			Block special file.
+c			Character special file.
+d			Directory.
+l			Symbolic link.
+p			FIFO.
+s			Socket.
+w			Whiteout.
+
+The next three groups are for owner permissions (group 2), group permissions (group 3), and other permissions (group 4). So each field has three character positions:
+
+r : Read only file permission
+w : Write only file permission
+x : Execute only file permission
+– : No permission
+So group 2 has rwx permission it means you have read, write and executable permission on the file.
+
+What is a directory?
+
+A directory is a group of files. A directory is divided into two types:
+
+Root directory – Strictly speaking, there is only one root directory in your Linux and Unix-like system, which is denoted by / (forward slash). It is root of your entire file system and can not be renamed or deleted.
+
+Sub directory – Directory under root (/) directory is subdirectory which can be created, renamed by the user.
+
+Directories are used to organize your data files, programs more efficiently.
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+How to create a directory
+
+Use the mkdir command:
+mkdir dir1
+
+Next list newly created directory with the help of ls command:
+ls -ld dir1
+
+To change the working directory use the cd command:
+cd dir1
+
+To print the current working directory, run the pwd command:
+pwd
+
+Let us create two sub-directories and a file, run:
+mkdir foo
+mkdir -v bar
+
+Next create a file named demo.txt in Linux/Unix from a bash shell prompt, run:
+echo "This is a test" > demo.txt
+
+List everything:
+ls -l
+
+Linux supports numerous file system types
+
+Ext2: This is like UNIX file system. It has the concepts of blocks, inodes and directories.
+Ext3: It is ext2 filesystem enhanced with journalling capabilities. Journalling allows fast file system recovery. Supports POSIX ACL (Access Control Lists).
+Isofs (iso9660): Used by CDROM file system.
+Sysfs: It is a ram-based filesystem initially based on ramfs. It is use to exporting kernel objects so that end user can use it easily.
+Procfs: The proc file system acts as an interface to internal data structures in the kernel. It can be used to obtain information about the system and to change certain kernel parameters at runtime using the sysctl command. For example, you can find out CPU information on Linux with following cat command:
+$ cat /proc/cpuinfo
+
+Or you can enable or disable routing/forwarding of IP packets between interfaces with following command:
+
+# cat /proc/sys/net/ipv4/ip_forward
+# echo "1" > /proc/sys/net/ipv4/ip_forward
+# echo "0" > /proc/sys/net/ipv4/ip_forward
+
+NFS: Network file system allows many users or systems to share the same files by using a client/server methodology. NFS allows sharing all of the above file system.
+Linux also supports Microsoft NTFS, vfat, and many other file systems. See Linux kernel source tree Documentation/filesystem directory for list of all supported filesystem.
+You can find out what type of file systems currently mounted with mount command.
+
+$ mount
+OR
+$ cat /proc/mounts
+
+
+List mounted file systems on Linux and Unix
+
+mount running on OpenBSD Unix box and display /proc/mounts on Linux
+
+What is a UNIX/Linux File system?
+
+A UNIX file system is a collection of files and directories stored on disk. Each file system is stored in a separate whole disk partition. The following are a few of the file system:
+
+/ – Special file system that incorporates the files under several directories including /dev, /sbin, /tmp and more
+/usr – Stores application programs
+/var – Stores log files, mails and other data
+/tmp – Stores temporary files
+
+See The importance of Linux partitions for more information.
+
+But what is in a File system?
+Again file system divided into two categories:
+
+User data – stores actual data contained in files
+Metadata – stores file system structural information such as superblock, inodes, directories
+
+_____________________________________________________________________________________________________________________________________________________________________________
+
+Directory 				  Purpose
+/ 					The Very Top (Root) of The File Tree. Holds Everything else.
+/bin 					Stores Common Linux user command binaries. e.g date, cat, cal commands are in here.
+/boot 					Bootable linux Kernel and bootloader config files
+/dev					Files representing devices. tty=terminal, fd=floppydisk, (sd or hd) = harddisks, ram=RAM, cd=CD-ROM
+/etc 					Administrative Configuration files. The format for many of these configuration can be found in section 5 of the Linux Manual.
+/home 					Where the home directories for regular users are stored. For example, mine is at /home/ziyad
+/media 					Unlike /dev, /media is usually where removable media (USB sticks, external hard drives etc.) are mounted.
+/lib 					Contains shared libraries needed by applications in /bin and /sbin to boot the system.
+/mnt 					A place to mount external devices. This can still be used but has been superseded by /media
+/misc 					A directory used to sometimes automount filesystems on request.
+/opt 					Directory Structure used to store additional (i.e optional) software
+/proc 					Information about System Resources
+/root 					The home folder for the root user aka the superuser (similar to the administrator on Windows)
+/sbin 					Contains administrative commands (binaries) for the root (super) user.
+/tmp 					Contains temporary files used by running applications.
+/usr					Contains files pertaining to users that in theory don’t change after installation.
+/var 					Contains directories of variable data that could be used by various applications. System log files are usually found here. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
